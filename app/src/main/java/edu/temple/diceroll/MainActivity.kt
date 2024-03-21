@@ -21,5 +21,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.diceFragmentContainer, DiceFragment.newInstance(6))
             .commit()
+
+        viewModel.getRoll().observe(this){
+            numberDisplay.text = it.toString()
+        }
     }
 }
