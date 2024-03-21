@@ -15,6 +15,8 @@ const val DIE_SIDES = "dIcE_SiDeS"
 class DiceFragment : Fragment() {
     private var sides: Int? = null
 
+    lateinit var imageViewModel: DiceViewModel
+
     // ViewModel declaration
     private lateinit var viewModel: DiceViewModel
 
@@ -26,6 +28,8 @@ class DiceFragment : Fragment() {
         arguments?.let {
             sides = it.getInt(DIE_SIDES)
         }
+
+        viewModel = ViewModelProvider(requireActivity())[DiceViewModel::class.java]
     }
 
     override fun onCreateView(
